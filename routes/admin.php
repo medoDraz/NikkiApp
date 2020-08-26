@@ -8,7 +8,12 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'guest:admin'], function (
     Route::post('logout', 'LoginController@logout')->name('admin.logout');
 });
 
-Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
+//Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]],
+//    function(){
+        Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
 
-    Route::get('/', 'AdminController@index')->name('admin.welcome');
-});
+            Route::get('/', 'AdminController@index')->name('admin.welcome');
+        });
+//    });
+
+
